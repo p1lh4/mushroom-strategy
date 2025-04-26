@@ -17,49 +17,45 @@
 
 ## What is the Mushroom Dashboard Strategy?
 
-Mushroom Dashboard Strategy provides a strategy for Home Assistant to automatically generate a dashboard using Mushroom
-cards.
+Mushroom Dashboard Strategy provides a strategy for Home Assistant to automatically generate a dashboard
+using [Mushroom][mushroomUrl] cards.
 
-It generates cards for your Home Assistants entities and areas, divided over several views.
-Besides a Home view from where you can enter a subview of your areas, a separate view for lights, fans and other domains
-are generated for easy access to your entities.
+Dashboard cards are generated for your Home Assistant's entities, devices and areas, divided over several views.
+Starting at the Home view, you can enter an area subview.
+For easy access, separate views are generated for entities which belong to specific domains.
 
 ### Features
 
-- 🛠 Automatically create dashboard with three lines of yaml.
+- 🛠 Automatically create a dashboard with three lines of YAML.
 - 😍 Built-in Views for device-specific controls.
 - 🎨 Many options to customize to fit your needs.
+- 📈 [Mini graph][miniGraphUrl] cards for sensor entities.
 
 > [!TIP]
-> If you like this package, please star the [project at GitHub](https://github.com/AalianKhan/mushroom-strategy)! 🌟
+> If you like this package, please star the [project at GitHub][repositoryUrl]!
 
 ## Getting started
 
 The strategy is easily installable from [HACS][hacsUrl] (Home Assistant Community Store).
-Please visit [Installation Guide](https://github.com/AalianKhan/mushroom-strategy/wiki/#installation) at our Wiki.
+Please visit [Installation Guide][installationUrl] at our Wiki.
 
 ## Need some help?
 
-Visit the [Discussions](https://github.com/AalianKhan/mushroom-strategy/discussions) page or the [Wiki](https://github.com/AalianKhan/mushroom-strategy/wiki).
+Visit the [Discussions][discussionsUrl] page or
+the [Wiki][wikiUrl].
 
 ## Have an idea or want to report a bug?
 
 Make sure your idea or bug isn't discussed already in our Discussions or Issues!
-Visit the [issues](https://github.com/AalianKhan/mushroom-strategy/issues/new/choose) page.
+Visit the [issues][issuesUrl] page.
 
-
-## Contributors
+## Collaborators
 
 * [DigiLive](https://github.com/DigiLive)
 
   [![Sponsor DigiLive][sponsorBadge]](https://github.com/sponsors/DigiLive)
 
-* [Johan Frick](https://github.com/johanfrick)
-
-## Credits
-
-* The cards used are from [Mushroom][mushroomUrl] and [Mini graph card][miniGraphUrl].
-* Took inspiration from [Balloob battery strategy][balloobBatteryUrl].
+* [Aalian Khan](https://github.com/AalianKhan)
 
 <!-- Badge References -->
 
@@ -67,16 +63,26 @@ Visit the [issues](https://github.com/AalianKhan/mushroom-strategy/issues/new/ch
 
 [sponsorBadge]: https://img.shields.io/badge/Sponsor_him-%E2%9D%A4-%23db61a2.svg?&logo=github&color=%23fe8e86
 
-[releaseBadge]: https://img.shields.io/badge/Release-v2.2.0-blue
+[releaseBadge]: https://img.shields.io/badge/Release-v2.3.0-alpha.1-blue
+
+<!-- Repository References -->
+
+[repositoryUrl]: https://github.com/DigiLive/mushroom-strategy
+
+[releaseUrl]: https://github.com/DigiLive/mushroom-strategy/releases/tag/v2.3.0-alpha.1
+
+[issuesUrl]: https://github.com/DigiLive/mushroom-strategy/issues
+
+[discussionsUrl]: https://github.com/DigiLive/mushroom-strategy/discussions
+
+[wikiUrl]: https://github.com/DigiLive/mushroom-strategy/wiki
+
+[installationUrl]: https://github.com/DigiLive/mushroom-strategy/wiki#installation
 
 <!-- Other References -->
 
 [hacsUrl]: https://hacs.xyz
 
-[releaseUrl]: https://github.com/AalianKhan/mushroom-strategy/releases/tag/v2.2.0
-
 [mushroomUrl]: https://github.com/piitaya/lovelace-mushroom
 
 [miniGraphUrl]: https://github.com/kalkih/mini-graph-card
-
-[balloobBatteryUrl]: https://gist.github.com/balloob/4a70c83287ddba4e9085cb578ffb161f

@@ -45,7 +45,7 @@ via an official social media account, or acting as an appointed representative a
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible
-for enforcement at <aaliankhan5@gmail.com>. All complaints will be reviewed and investigated promptly and fairly.
+for enforcement. All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the reporter's privacy and security of any incident.
 
