@@ -29,7 +29,10 @@
     "off": "Apagado",
     "on": "Encendido",
     "open": "Abierto",
-    "unclosed": "Sin Cerrar"
+    "unavailable": "No Disponible",
+    "unclosed": "Sin Cerrar",
+    "undisclosed": "Varios",
+    "unknown": "Desconocido"
   },
   "input_select": {
     "input_selects": "Selecciones de Entrada"
@@ -39,10 +42,16 @@
     "lights": "Luces"
   },
   "lock": {
-    "locks": "Candados"
+    "all_locks": "Todas las Candados",
+    "locked": "Locked",
+    "locks": "Candados",
+    "unlocked": "Desbloqueado"
   },
   "media_player": {
     "media_players": "Reproductores Multimedia"
+  },
+  "scene": {
+    "scenes": "Scenas"
   },
   "select": {
     "selects": "Seleccionar"
@@ -58,5 +67,14 @@
   "vacuum": {
     "all_vacuums": "Todas las Aspiradoras",
     "vacuums": "Aspiradoras"
+  },
+  "valve": {
+    "all_valves": "Todas las válvulas",
+    "valves": "Válvulas",
+    "open": "Abierta",
+    "opening": "Abriendo",
+    "closed": "Cerrada",
+    "closing": "Cerrando",
+    "stopped": "Detenida"
   }
 }

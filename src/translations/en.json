@@ -29,7 +29,10 @@
     "off": "Off",
     "on": "On",
     "open": "Open",
-    "unclosed": "Unclosed"
+    "unavailable": "Unavailable",
+    "unclosed": "Unclosed",
+    "undisclosed": "Other",
+    "unknown": "Unknown"
   },
   "input_select": {
     "input_selects": "Input Selects"
@@ -39,10 +42,13 @@
     "lights": "Lights"
   },
   "lock": {
-    "locks": "Locks"
+    "all_locks": "All Locks",
+    "locked": "Locked",
+    "locks": "Locks",
+    "unlocked": "Unlocked"
   },
   "media_player": {
-    "media_players": "Mediaplayers"
+    "media_players": "Media Players"
   },
   "scene": {
     "scenes": "Scenes"
@@ -61,5 +67,14 @@
   "vacuum": {
     "all_vacuums": "All Vacuums",
     "vacuums": "Vacuums"
+  },
+  "valve": {
+    "all_valves": "All Valves",
+    "valves": "Valves",
+    "open": "Open",
+    "opening": "Opening",
+    "closed": "Closed",
+    "closing": "Closing",
+    "stopped": "Stopped"
   }
 }

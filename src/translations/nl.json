@@ -19,9 +19,9 @@
     "all": "Alle",
     "areas": "Ruimtes",
     "busy": "Bezig",
-    "good_afternoon": "Goede middag",
-    "good_evening": "Goede avond",
-    "good_morning": "Goede morgen",
+    "good_afternoon": "Goedemiddag",
+    "good_evening": "Goedeavond",
+    "good_morning": "Goedemorgen",
     "hello": "Hallo",
     "home": "Start",
     "miscellaneous": "Overige",
@@ -29,7 +29,10 @@
     "off": "Uit",
     "on": "Aan",
     "open": "Open",
-    "unclosed": "Ongesloten"
+    "unavailable": "Onbeschikbaar",
+    "unclosed": "Niet Gesloten",
+    "undisclosed": "Overige",
+    "unknown": "Onbekend"
   },
   "input_select": {
     "input_selects": "Lijsten"
@@ -39,7 +42,10 @@
     "lights": "Lampen"
   },
   "lock": {
-    "locks": "Sloten"
+    "all_locks": "Alle Sloten",
+    "locked": "Vergrendeld",
+    "locks": "Sloten",
+    "unlocked": "Ontgrendeld"
   },
   "media_player": {
     "media_players": "Mediaspelers"
@@ -61,5 +67,14 @@
   "vacuum": {
     "all_vacuums": "Alle Afzuiging",
     "vacuums": "Afzuiging"
+  },
+  "valve": {
+    "all_valves": "Alle kleppen",
+    "valves": "Kleppen",
+    "open": "Open",
+    "opening": "Openen",
+    "closed": "Gesloten",
+    "closing": "Sluiten",
+    "stopped": "Gestopt"
   }
 }

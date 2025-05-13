@@ -1,64 +1,48 @@
-import {HassServiceTarget} from "home-assistant-js-websocket";
-import {LovelaceChipConfig} from "../types/lovelace-mushroom/utils/lovelace/chip/types";
-import {Helper} from "../Helper";
-import {generic} from "../types/strategy/generic";
-import isCallServiceActionConfig = generic.isCallServiceActionConfig;
+import { Registry } from '../Registry';
+import { LovelaceChipConfig } from '../types/lovelace-mushroom/utils/lovelace/chip/types';
+import { logMessage, lvlFatal } from '../utilities/debug';
 
-/**
- * Abstract Chip class.
- *
- * To create a new chip, extend this one.
- *
- * @class
- * @abstract
- */
 abstract class AbstractChip {
+  /**
+   * Abstract Chip class.
+   *
+   * To create a chip configuration, this class should be extended by a child class.
+   * Child classes should override the default configuration so the chip correctly reflects the entity.
+   *
+   * @remarks
+   * Before using this class, the Registry module must be initialized by calling {@link Registry.initialize}.
+   */
+
   /**
    * Configuration of the chip.
    *
-   * @type {LovelaceChipConfig}
+   * Child classes should override this property to reflect their own card type and options.
    */
-  config: LovelaceChipConfig = {
-    type: "template"
+  protected configuration: LovelaceChipConfig = {
+    // TODO: Check if this is correct vs custom:mushroom-template-badge. Also in child classes.
+    type: 'template',
   };
 
   /**
    * Class Constructor.
+   *
+   * @remarks
+   * Before using this class, the Registry module must be initialized by calling {@link Registry.initialize}.
    */
   protected constructor() {
-    if (!Helper.isInitialized()) {
-      throw new Error("The Helper module must be initialized before using this one.");
+    if (!Registry.initialized) {
+      logMessage(lvlFatal, 'Registry not initialized!');
     }
   }
 
-  // noinspection JSUnusedGlobalSymbols Method is called on dymanically imported classes.
   /**
-   * Get the chip.
+   * Get a chip configuration.
    *
-   * @returns  {LovelaceChipConfig} A chip.
+   * The configuration should be set by any of the child classes so the chip correctly reflects an entity.
    */
-  getChip(): LovelaceChipConfig {
-    return this.config;
-  }
-
-  /**
-   * Set the target to switch.
-   *
-   * @param {HassServiceTarget} target Target to switch.
-   */
-  setTapActionTarget(target: HassServiceTarget) {
-    if ("tap_action" in this.config && isCallServiceActionConfig(this.config.tap_action)) {
-      this.config.tap_action.target = target;
-
-      return;
-    }
-
-    if (Helper.debug) {
-      console.warn(
-        this.constructor.name
-        + " - Target not set: Invalid target or tap action.");
-    }
+  getChipConfiguration(): LovelaceChipConfig {
+    return this.configuration;
   }
 }
 
-export {AbstractChip};
+export default AbstractChip;
