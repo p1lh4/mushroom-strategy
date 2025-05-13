@@ -250,10 +250,14 @@ class HomeView extends AbstractView {
         }
       }
 
-      cardConfigurations.push(new AreaCard(area).getCard());
+      cardConfigurations.push(
+        new AreaCard(area, {
+          ...Registry.strategyOptions.areas['_'],
+          ...Registry.strategyOptions.areas[area.area_id],
+        }).getCard(),
+      );
     }
 
-    // FIXME: The columns are too narrow when having HASS area cards.
     return {
       type: 'vertical-stack',
       title: Registry.strategyOptions.home_view.hidden.includes('areasTitle') ? undefined : localize('generic.areas'),
