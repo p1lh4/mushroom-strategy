@@ -11,6 +11,7 @@ on:
 
 jobs:
   build:
+    name: Build Distribution
     runs-on: ubuntu-latest
     env:
       CI_COMMIT_MESSAGE: Continuous Integration - Build Distribution
@@ -22,12 +23,13 @@ jobs:
 
     # Checkout Repository
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
         with:
           token: ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
 
       # Build steps
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
@@ -44,9 +46,9 @@ jobs:
         run: |
           git diff --quiet . || echo "changed=true" >> $GITHUB_OUTPUT
 
-        # Commit and push all changed files.
+      # Commit and push all changed files.
       # Must only affect files that are listed in "paths-ignore".
-      - name: GIT Commit Distribution Build
+      - name: Commit Distribution Build
         # Only run on a main branch push (e.g., pull request merge).
         if: github.event_name == 'push' && steps.checkDiff.outputs.changed == 'true'
         run: |
