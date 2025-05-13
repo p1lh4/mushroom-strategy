@@ -8,7 +8,7 @@ import { ChipsCardConfig } from '../types/lovelace-mushroom/cards/chips-card';
 import { PersonCardConfig } from '../types/lovelace-mushroom/cards/person-card-config';
 import { TemplateCardConfig } from '../types/lovelace-mushroom/cards/template-card-config';
 import { LovelaceChipConfig } from '../types/lovelace-mushroom/utils/lovelace/chip/types';
-import { HomeViewSections, isSupportedChip } from '../types/strategy/strategy-generics';
+import { isSupportedChip } from '../types/strategy/strategy-generics';
 import { ViewConfig } from '../types/strategy/strategy-views';
 import { sanitizeClassName } from '../utilities/auxiliaries';
 import { logMessage, lvlError, lvlInfo } from '../utilities/debug';
@@ -78,7 +78,7 @@ class HomeView extends AbstractView {
     }
 
     // Create the greeting section.
-    if (!('greeting' in Registry.strategyOptions.home_view.hidden)) {
+    if (!Registry.strategyOptions.home_view.hidden.includes('greeting')) {
       homeViewCards.push({
         type: 'custom:mushroom-template-card',
         primary: `{% set time = now().hour %}
@@ -125,7 +125,7 @@ class HomeView extends AbstractView {
    * If the section is marked as hidden in the strategy option, then the section is not created.
    */
   private async createChipsSection(): Promise<ChipsCardConfig | undefined> {
-    if ((Registry.strategyOptions.home_view.hidden as string[]).includes('chips')) {
+    if (Registry.strategyOptions.home_view.hidden.includes('chips')) {
       // The section is hidden.
       return;
     }
@@ -193,7 +193,7 @@ class HomeView extends AbstractView {
    * If the section is marked as hidden in the strategy option, then the section is not created.
    */
   private async createPersonsSection(): Promise<StackCardConfig | undefined> {
-    if ((Registry.strategyOptions.home_view.hidden as string[]).includes('persons')) {
+    if (Registry.strategyOptions.home_view.hidden.includes('persons')) {
       // The section is hidden.
 
       return;
@@ -221,7 +221,7 @@ class HomeView extends AbstractView {
    * If the section is marked as hidden in the strategy option, then the section is not created.
    */
   private async createAreasSection(): Promise<StackCardConfig | undefined> {
-    if ((Registry.strategyOptions.home_view.hidden as string[]).includes('areas')) {
+    if (Registry.strategyOptions.home_view.hidden.includes('areas')) {
       // Areas section is hidden.
 
       return;
@@ -256,9 +256,7 @@ class HomeView extends AbstractView {
     // FIXME: The columns are too narrow when having HASS area cards.
     return {
       type: 'vertical-stack',
-      title: (Registry.strategyOptions.home_view.hidden as HomeViewSections[]).includes('areasTitle')
-        ? undefined
-        : localize('generic.areas'),
+      title: Registry.strategyOptions.home_view.hidden.includes('areasTitle') ? undefined : localize('generic.areas'),
       cards: stackHorizontal(cardConfigurations, { area: 1, 'custom:mushroom-template-card': 2 }),
     };
   }

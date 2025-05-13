@@ -217,7 +217,7 @@ export interface StrategyConfig {
   extra_cards: LovelaceCardConfig[];
   extra_views: StrategyViewConfig[];
   home_view: {
-    hidden: HomeViewSections[] | [];
+    hidden: HomeViewSections[];
   };
   views: Record<SupportedViews, StrategyViewConfig>;
   quick_access_cards: LovelaceCardConfig[];
