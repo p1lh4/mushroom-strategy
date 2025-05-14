@@ -16,7 +16,7 @@ import { logMessage, lvlWarn } from './debug';
 class RegistryFilter<T extends RegistryEntry, K extends keyof T = keyof T> {
   private readonly entries: T[];
   private filters: (((entry: T) => boolean) | ((entry: T, index: number) => boolean))[] = [];
-  private readonly entryIdentifier: ('entity_id' | 'floor_id' | 'id') & K;
+  private readonly entryIdentifier: ('entity_id' | 'area_id' | 'id') & K;
   private invertNext: boolean = false;
 
   /**
@@ -27,8 +27,8 @@ class RegistryFilter<T extends RegistryEntry, K extends keyof T = keyof T> {
   constructor(entries: T[]) {
     this.entries = entries;
     this.entryIdentifier = (
-      entries.length === 0 || 'entity_id' in entries[0] ? 'entity_id' : 'floor_id' in entries[0] ? 'floor_id' : 'id'
-    ) as ('entity_id' | 'floor_id' | 'id') & K;
+      entries.length === 0 || 'entity_id' in entries[0] ? 'entity_id' : 'floor_id' in entries[0] ? 'area_id' : 'id'
+    ) as ('entity_id' | 'area_id' | 'id') & K;
   }
 
   /**
@@ -261,7 +261,12 @@ class RegistryFilter<T extends RegistryEntry, K extends keyof T = keyof T> {
       }
 
       const id = entry[this.entryIdentifier] as keyof StrategyConfig['card_options'];
-      const isHiddenByConfig = Registry.strategyOptions?.card_options?.[id]?.hidden === true;
+      const options =
+        this.entryIdentifier === 'area_id'
+          ? { ...Registry.strategyOptions.areas['_'], ...Registry.strategyOptions.areas[id] }
+          : Registry.strategyOptions.card_options?.[id];
+
+      const isHiddenByConfig = options?.hidden === true;
 
       return !isHiddenByProperty && !isHiddenByConfig;
     };

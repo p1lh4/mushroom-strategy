@@ -179,8 +179,9 @@ class Registry {
         return { ...area, ...Registry.strategyOptions.areas['_'], ...Registry.strategyOptions.areas?.[area.area_id] };
       });
 
-      // Ensure the custom configuration of the undisclosed area doesn't overwrite the area_id.
+      // Ensure the custom configuration of the undisclosed area doesn't overwrite the required property values.
       Registry.strategyOptions.areas.undisclosed.area_id = 'undisclosed';
+      Registry.strategyOptions.areas.undisclosed.type = 'default';
 
       // Remove hidden areas if configured as so and sort them by name.
 

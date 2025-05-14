@@ -172,14 +172,14 @@ export interface ViewInfo {
 /**
  * All-Domains Configuration.
  *
- * @property {boolean | undefined} hide_config_entities - If True, all configuration entities are hidden from the
- *   dashboard.
- * @property {boolean | undefined} hide_diagnostic_entities - If True, all diagnostic entities are hidden from the
- *   dashboard.
+ * @property {boolean} [hide_config_entities] - If True, all configuration entities are hidden from the dashboard.
+ * @property {boolean} [hide_diagnostic_entities] - If True, all diagnostic entities are hidden from the dashboard.
+ * @property {boolean} [showControls] - False to hide controls.
  */
 export interface AllDomainsConfig {
-  hide_config_entities: boolean | undefined;
-  hide_diagnostic_entities: boolean | undefined;
+  hide_config_entities?: boolean;
+  hide_diagnostic_entities?: boolean;
+  showControls?: boolean;
 }
 
 /**
