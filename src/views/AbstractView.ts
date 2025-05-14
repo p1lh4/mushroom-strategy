@@ -22,7 +22,7 @@ import RegistryFilter from '../utilities/RegistryFilter';
  */
 abstract class AbstractView {
   /** The base configuration of a view. */
-  protected baseConfiguration: LovelaceViewConfig = {
+  protected baseConfiguration: ViewConfig = {
     icon: 'mdi:view-dashboard',
     subview: false,
   };
@@ -143,10 +143,14 @@ abstract class AbstractView {
   ): void {
     this.baseConfiguration = { ...this.baseConfiguration, ...viewConfiguration, ...customConfiguration };
 
+    this.baseConfiguration.headerCardConfiguration = {
+      showControls:
+        Registry.strategyOptions.domains[this.domain as Exclude<SupportedDomains, 'home'>]?.showControls ??
+        Registry.strategyOptions.domains['_'].showControls,
+    };
+
     this.viewHeaderCardConfiguration = new HeaderCard(this.getDomainTargets(), {
-      ...(('headerCardConfiguration' in this.baseConfiguration
-        ? this.baseConfiguration.headerCardConfiguration
-        : {}) as StrategyHeaderCardConfig),
+      ...(this.baseConfiguration.headerCardConfiguration as StrategyHeaderCardConfig),
       ...headerCardConfig,
     }).createCard();
   }

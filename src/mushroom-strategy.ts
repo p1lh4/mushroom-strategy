@@ -123,7 +123,10 @@ class MushroomStrategy extends HTMLTemplateElement {
 
       const titleCard = new HeaderCard(
         { entity_id: entities.map((entity) => entity.entity_id) },
-        Registry.strategyOptions.domains[domain],
+        {
+          ...Registry.strategyOptions.domains['_'],
+          ...Registry.strategyOptions.domains[domain],
+        },
       ).createCard();
 
       try {

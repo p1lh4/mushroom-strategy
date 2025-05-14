@@ -38,6 +38,7 @@ export const ConfigurationDefaults: StrategyDefaults = {
     _: {
       hide_config_entities: undefined,
       hide_diagnostic_entities: undefined,
+      showControls: true,
     },
     binary_sensor: {
       title: `${localize('sensor.binary')} ` + localize('sensor.sensors'),
@@ -56,7 +57,6 @@ export const ConfigurationDefaults: StrategyDefaults = {
     },
     cover: {
       title: localize('cover.covers'),
-      showControls: true,
       iconOn: 'mdi:arrow-up',
       iconOff: 'mdi:arrow-down',
       onService: 'cover.open_cover',
@@ -70,7 +70,6 @@ export const ConfigurationDefaults: StrategyDefaults = {
     },
     fan: {
       title: localize('fan.fans'),
-      showControls: true,
       iconOn: 'mdi:fan',
       iconOff: 'mdi:fan-off',
       onService: 'fan.turn_on',
@@ -84,7 +83,6 @@ export const ConfigurationDefaults: StrategyDefaults = {
     },
     light: {
       title: localize('light.lights'),
-      showControls: true,
       iconOn: 'mdi:lightbulb',
       iconOff: 'mdi:lightbulb-off',
       onService: 'light.turn_on',
@@ -124,7 +122,6 @@ export const ConfigurationDefaults: StrategyDefaults = {
     },
     switch: {
       title: localize('switch.switches'),
-      showControls: true,
       iconOn: 'mdi:power-plug',
       iconOff: 'mdi:power-plug-off',
       onService: 'switch.turn_on',
