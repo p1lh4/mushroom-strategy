@@ -133,7 +133,10 @@ export const ConfigurationDefaults: StrategyDefaults = {
     },
     vacuum: {
       title: localize('vacuum.vacuums'),
-      showControls: true,
+      iconOn: 'mdi:robot-vacuum',
+      iconOff: 'mdi:robot-vacuum-off',
+      onService: 'vacuum.start',
+      offService: 'vacuum.stop',
       hidden: false,
     },
   },
