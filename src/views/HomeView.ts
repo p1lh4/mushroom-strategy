@@ -229,15 +229,11 @@ class HomeView extends AbstractView {
 
     const cardConfigurations: (TemplateCardConfig | AreaCardConfig)[] = [];
 
-    let onlyDefaultCards = true;
-
     for (const area of Registry.areas) {
       const moduleName =
         Registry.strategyOptions.areas[area.area_id]?.type ?? Registry.strategyOptions.areas['_']?.type ?? 'default';
 
       let AreaCard;
-
-      onlyDefaultCards = onlyDefaultCards && moduleName === 'default';
 
       try {
         AreaCard = (await import(`../cards/${moduleName}`)).default;
