@@ -2,6 +2,7 @@ import * as de from '../translations/de.json';
 import * as en from '../translations/en.json';
 import * as es from '../translations/es.json';
 import * as nl from '../translations/nl.json';
+import * as pt from '../translations/pt_BR.json';
 import { HomeAssistant } from '../types/homeassistant/types';
 import { logMessage, lvlWarn } from './debug';
 
@@ -11,6 +12,7 @@ const languages: Record<string, unknown> = {
   en,
   es,
   nl,
+  pt
 };
 
 /** The fallback language if the user-defined language isn't defined */
